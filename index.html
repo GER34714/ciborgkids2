@@ -1,0 +1,4177 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mi Mundo de Aprendizaje</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --purple:#7657e8;
+  --purple2:#a56cff;
+  --blue:#45a7ff;
+  --cyan:#35d5e8;
+  --green:#35c987;
+  --yellow:#ffc928;
+  --orange:#ff914d;
+  --pink:#ff5fa2;
+  --red:#ff5c63;
+  --dark:#25234a;
+  --text:#343451;
+  --muted:#777796;
+  --white:#fff;
+  --bg:#eef3ff;
+  --card:#fff;
+  --shadow:0 15px 40px rgba(65,61,130,.13);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  font-family:
+    "Trebuchet MS",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 5%,#fff 0,transparent 24%),
+    radial-gradient(circle at 90% 15%,#dffaff 0,transparent 22%),
+    linear-gradient(180deg,#eef3ff 0%,#f8f8ff 100%);
+  overflow-x:hidden;
+}
+
+button{
+  font-family:inherit;
+  border:0;
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(80,70,150,.08);
+}
+
+.topbar-inner{
+  max-width:1300px;
+  margin:auto;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:1000;
+  color:var(--dark);
+}
+
+.brand-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-size:28px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  box-shadow:0 9px 20px rgba(118,87,232,.3);
+}
+
+.brand-name{
+  line-height:1;
+  font-size:18px;
+}
+
+.brand-name span{
+  color:var(--purple);
+}
+
+.top-stats{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.stat{
+  background:#fff;
+  border-radius:15px;
+  padding:8px 12px;
+  box-shadow:0 5px 15px rgba(60,60,100,.08);
+  font-size:14px;
+  font-weight:1000;
+  white-space:nowrap;
+}
+
+.stat span{
+  margin-left:3px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  max-width:1300px;
+  margin:22px auto 0;
+  padding:0 18px;
+}
+
+.hero-card{
+  min-height:330px;
+  position:relative;
+  overflow:hidden;
+  border-radius:35px;
+  padding:42px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 80% 25%,rgba(255,255,255,.25),transparent 15%),
+    radial-gradient(circle at 95% 100%,rgba(53,213,232,.5),transparent 28%),
+    radial-gradient(circle at 10% 100%,rgba(255,201,40,.3),transparent 25%),
+    linear-gradient(135deg,#6750db,#8c62ee 48%,#4dbce9);
+  box-shadow:0 25px 60px rgba(92,72,190,.25);
+}
+
+.hero-cloud{
+  position:absolute;
+  opacity:.25;
+  font-size:70px;
+}
+
+.cloud1{
+  right:100px;
+  top:25px;
+}
+
+.cloud2{
+  right:350px;
+  bottom:20px;
+  font-size:45px;
+}
+
+.hero-character{
+  position:absolute;
+  right:90px;
+  bottom:10px;
+  font-size:170px;
+  filter:drop-shadow(0 18px 10px rgba(0,0,0,.15));
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-12px) rotate(2deg)}
+}
+
+.hero h1{
+  position:relative;
+  z-index:2;
+  font-size:clamp(36px,6vw,65px);
+  line-height:.95;
+  max-width:650px;
+  margin-bottom:15px;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  position:relative;
+  z-index:2;
+  max-width:620px;
+  font-size:18px;
+  line-height:1.55;
+  opacity:.94;
+}
+
+.hero-buttons{
+  position:relative;
+  z-index:3;
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 21px;
+  border-radius:16px;
+  font-size:15px;
+  font-weight:1000;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn-primary{
+  background:#fff;
+  color:var(--purple);
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.btn-glass{
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+}
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.main{
+  max-width:1300px;
+  margin:25px auto 80px;
+  padding:0 18px;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:1.5fr repeat(3,1fr);
+  gap:14px;
+}
+
+.dash-card{
+  background:#fff;
+  border-radius:23px;
+  padding:19px;
+  box-shadow:var(--shadow);
+}
+
+.level-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.level-circle{
+  width:62px;
+  height:62px;
+  flex:none;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#7657e8,#a76dff);
+  color:white;
+  font-size:23px;
+  font-weight:1000;
+  box-shadow:0 8px 18px rgba(118,87,232,.25);
+}
+
+.dash-label{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.dash-value{
+  font-size:26px;
+  font-weight:1000;
+  color:var(--dark);
+}
+
+.progress{
+  height:10px;
+  background:#edf0fa;
+  border-radius:50px;
+  overflow:hidden;
+  margin-top:7px;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  border-radius:50px;
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  transition:width .5s;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.section{
+  margin-top:35px;
+}
+
+.section-title{
+  font-size:30px;
+  font-weight:1000;
+  color:var(--dark);
+}
+
+.section-sub{
+  margin-top:4px;
+  color:var(--muted);
+}
+
+.world-map{
+  margin-top:18px;
+  min-height:430px;
+  border-radius:32px;
+  position:relative;
+  overflow:hidden;
+  padding:25px;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.7),transparent 13%),
+    radial-gradient(circle at 75% 65%,rgba(255,255,255,.6),transparent 15%),
+    linear-gradient(180deg,#8edcf2,#c9f0b7);
+  box-shadow:var(--shadow);
+}
+
+.sun{
+  position:absolute;
+  right:35px;
+  top:20px;
+  font-size:65px;
+}
+
+.map-cloud{
+  position:absolute;
+  font-size:55px;
+  opacity:.55;
+}
+
+.mc1{left:30px;top:30px}
+.mc2{left:42%;top:75px}
+.mc3{right:20%;top:15px}
+
+.island{
+  position:absolute;
+  width:175px;
+  min-height:145px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:18px;
+  color:white;
+  cursor:pointer;
+  box-shadow:
+    inset 0 -12px 0 rgba(0,0,0,.08),
+    0 15px 25px rgba(45,90,90,.2);
+  transition:.25s;
+}
+
+.island:hover{
+  transform:translateY(-8px) scale(1.04);
+}
+
+.island.locked{
+  filter:grayscale(.5);
+  opacity:.62;
+  cursor:not-allowed;
+}
+
+.island-icon{
+  font-size:55px;
+  line-height:1;
+  margin-bottom:7px;
+}
+
+.island-title{
+  font-weight:1000;
+  font-size:17px;
+}
+
+.island-stars{
+  margin-top:5px;
+  font-size:13px;
+}
+
+.island-1{
+  left:8%;
+  top:150px;
+  background:linear-gradient(180deg,#8669ed,#6446ca);
+}
+
+.island-2{
+  left:35%;
+  top:105px;
+  background:linear-gradient(180deg,#4cb4ff,#2779e8);
+}
+
+.island-3{
+  right:9%;
+  top:145px;
+  background:linear-gradient(180deg,#ffad56,#ed6d3b);
+}
+
+.island-4{
+  left:21%;
+  bottom:15px;
+  background:linear-gradient(180deg,#46d39b,#1ea978);
+}
+
+.island-5{
+  right:27%;
+  bottom:12px;
+  background:linear-gradient(180deg,#ff72ad,#e84486);
+}
+
+.path{
+  position:absolute;
+  border-top:7px dashed rgba(255,255,255,.8);
+  transform:rotate(20deg);
+  width:180px;
+}
+
+.path1{
+  left:23%;
+  top:225px;
+}
+
+.path2{
+  left:50%;
+  top:200px;
+  transform:rotate(-17deg);
+}
+
+.path3{
+  left:31%;
+  bottom:105px;
+  transform:rotate(-30deg);
+}
+
+.path4{
+  right:25%;
+  bottom:105px;
+  transform:rotate(20deg);
+}
+
+/* =========================================================
+   DAILY
+========================================================= */
+
+.daily{
+  margin-top:22px;
+  background:linear-gradient(135deg,#fff8cf,#fff);
+  border:2px solid #ffe47d;
+  border-radius:25px;
+  padding:20px 23px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  box-shadow:0 10px 30px rgba(255,201,40,.12);
+}
+
+.daily-icon{
+  font-size:45px;
+}
+
+.daily-content{
+  flex:1;
+}
+
+.daily h2{
+  color:#614f10;
+  font-size:21px;
+}
+
+.daily p{
+  color:#877634;
+  margin-top:4px;
+}
+
+.daily button{
+  background:#ffc928;
+  color:#513c00;
+}
+
+/* =========================================================
+   GAMES
+========================================================= */
+
+.games-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+}
+
+.search{
+  width:250px;
+  padding:13px 15px;
+  border:2px solid #e7e8f3;
+  background:white;
+  border-radius:15px;
+  outline:none;
+  font-size:14px;
+}
+
+.categories{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  padding:15px 0;
+}
+
+.category{
+  flex:none;
+  padding:10px 15px;
+  border-radius:13px;
+  background:#fff;
+  color:#676783;
+  font-weight:900;
+  box-shadow:0 5px 15px rgba(50,50,100,.07);
+}
+
+.category.active{
+  background:var(--purple);
+  color:white;
+}
+
+.games{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.game-card{
+  background:#fff;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.game-card:hover{
+  transform:translateY(-5px);
+}
+
+.game-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.game-icon{
+  width:64px;
+  height:64px;
+  border-radius:19px;
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  background:#f0edff;
+}
+
+.game-xp{
+  font-size:12px;
+  font-weight:1000;
+  color:#ec9e00;
+}
+
+.game-card h3{
+  margin-top:14px;
+  font-size:18px;
+  color:var(--dark);
+}
+
+.game-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.45;
+  min-height:39px;
+  margin-top:5px;
+}
+
+.play-btn{
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:white;
+  font-weight:1000;
+}
+
+.lock-card{
+  opacity:.5;
+}
+
+.lock-card .play-btn{
+  background:#b9bbca;
+}
+
+/* =========================================================
+   REWARDS
+========================================================= */
+
+.reward-panel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.reward-card{
+  background:white;
+  border-radius:25px;
+  padding:23px;
+  box-shadow:var(--shadow);
+}
+
+.reward-card h3{
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+.chest{
+  min-height:150px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:
+    radial-gradient(circle,#fff5 0,transparent 40%),
+    linear-gradient(135deg,#7a5be9,#4e39b8);
+  color:white;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.chest:hover{
+  transform:scale(1.02);
+}
+
+.chest-icon{
+  font-size:65px;
+}
+
+.chest small{
+  margin-top:5px;
+  font-weight:900;
+}
+
+.badges{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.badge{
+  text-align:center;
+  border-radius:17px;
+  background:#f2f3fa;
+  padding:13px 7px;
+  filter:grayscale(1);
+  opacity:.4;
+}
+
+.badge.unlocked{
+  filter:none;
+  opacity:1;
+  background:#fff8d9;
+}
+
+.badge-icon{
+  font-size:31px;
+}
+
+.badge-title{
+  margin-top:5px;
+  font-size:11px;
+  font-weight:1000;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(25,24,55,.72);
+  backdrop-filter:blur(8px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(760px,100%);
+  max-height:94vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:32px;
+  box-shadow:0 35px 100px rgba(0,0,0,.35);
+  animation:modalIn .25s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.modal-head{
+  padding:17px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #eeeef5;
+}
+
+.modal-title{
+  font-size:21px;
+  font-weight:1000;
+}
+
+.close{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#f0f1f6;
+  color:#55556e;
+  font-size:23px;
+}
+
+.modal-body{
+  padding:25px;
+}
+
+/* game hud */
+
+.game-hud{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.hud-pill{
+  background:#f3f4fb;
+  border-radius:12px;
+  padding:8px 11px;
+  font-weight:1000;
+  font-size:13px;
+}
+
+.hud-pill.coins{
+  color:#b17b00;
+  background:#fff7d9;
+}
+
+.hud-pill.hearts{
+  color:#e54860;
+  background:#ffe9ed;
+}
+
+/* question */
+
+.game-scene{
+  border-radius:25px;
+  padding:25px;
+  min-height:310px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle at 15% 20%,#fff 0,transparent 20%),
+    linear-gradient(135deg,#eef0ff,#e8fbff);
+  position:relative;
+  overflow:hidden;
+}
+
+.game-scene:before{
+  content:"✨";
+  position:absolute;
+  top:12px;
+  left:18px;
+  opacity:.5;
+  font-size:25px;
+}
+
+.game-scene:after{
+  content:"⭐";
+  position:absolute;
+  right:20px;
+  bottom:10px;
+  opacity:.35;
+  font-size:35px;
+}
+
+.instruction{
+  color:var(--muted);
+  font-weight:900;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.big-question{
+  font-size:42px;
+  font-weight:1000;
+  color:var(--dark);
+  text-align:center;
+  margin:10px 0 20px;
+}
+
+.big-emoji{
+  font-size:85px;
+  margin-bottom:10px;
+  filter:drop-shadow(0 7px 5px rgba(0,0,0,.08));
+}
+
+.answer-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.game-answer{
+  min-height:65px;
+  border-radius:18px;
+  background:#fff;
+  color:var(--dark);
+  border:3px solid #e7e8f3;
+  font-size:20px;
+  font-weight:1000;
+  transition:.15s;
+  box-shadow:0 7px 15px rgba(60,60,100,.06);
+}
+
+.game-answer:hover{
+  transform:translateY(-3px);
+  border-color:#9a84ef;
+}
+
+.game-answer.correct{
+  background:#d8f8e8;
+  border-color:#35c987;
+  color:#128354;
+  animation:correctPop .35s;
+}
+
+.game-answer.wrong{
+  background:#ffe0e4;
+  border-color:#ff6974;
+  color:#bd3140;
+  animation:shake .35s;
+}
+
+@keyframes correctPop{
+  50%{transform:scale(1.06)}
+}
+
+@keyframes shake{
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
+
+.feedback{
+  text-align:center;
+  min-height:35px;
+  padding:13px 5px 2px;
+  font-size:19px;
+  font-weight:1000;
+}
+
+.reward-line{
+  text-align:center;
+  color:#b67c00;
+  font-weight:1000;
+  min-height:23px;
+}
+
+/* memory */
+
+.memory-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.memory-card{
+  aspect-ratio:1;
+  border-radius:18px;
+  background:linear-gradient(135deg,#7455e6,#a16aff);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:36px;
+  font-weight:1000;
+  box-shadow:0 7px 15px rgba(80,60,160,.15);
+  transition:.2s;
+}
+
+.memory-card:hover{
+  transform:scale(1.03);
+}
+
+.memory-card.open,
+.memory-card.matched{
+  background:#fff;
+  border:3px solid #e1e2ee;
+  color:#333;
+}
+
+.memory-card.matched{
+  background:#dff9ec;
+  border-color:#45c989;
+}
+
+/* story */
+
+.story-box{
+  background:#fff8e8;
+  border:2px solid #ffe6a0;
+  border-radius:22px;
+  padding:22px;
+  line-height:1.75;
+  font-size:17px;
+}
+
+.story-box h2{
+  color:#755714;
+  margin-bottom:12px;
+}
+
+.story-box p+p{
+  margin-top:10px;
+}
+
+/* shop */
+
+.shop-items{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.shop-item{
+  background:#f5f6fc;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+.shop-item-icon{
+  font-size:55px;
+}
+
+.shop-item h3{
+  margin-top:5px;
+}
+
+.shop-buy{
+  margin-top:10px;
+  padding:10px 14px;
+  background:#ffc928;
+  border-radius:12px;
+  font-weight:1000;
+}
+
+/* result */
+
+.result-screen{
+  text-align:center;
+  padding:20px 5px;
+}
+
+.result-emoji{
+  font-size:90px;
+  animation:float 2.2s ease-in-out infinite;
+}
+
+.result-screen h2{
+  font-size:34px;
+  color:var(--dark);
+  margin:10px 0;
+}
+
+.result-sub{
+  color:var(--muted);
+  font-weight:800;
+}
+
+.result-rewards{
+  margin:20px 0;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.result-reward{
+  padding:13px 18px;
+  border-radius:15px;
+  background:#fff7d6;
+  color:#80600a;
+  font-weight:1000;
+}
+
+.result-buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.result-btn{
+  padding:13px 20px;
+  border-radius:14px;
+  font-weight:1000;
+}
+
+.result-main{
+  color:white;
+  background:linear-gradient(135deg,#7657e8,#a56cff);
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti{
+  position:fixed;
+  width:9px;
+  height:15px;
+  z-index:1000;
+  pointer-events:none;
+  animation:confettiFall 1.6s linear forwards;
+}
+
+@keyframes confettiFall{
+  0%{
+    transform:translateY(-20px) rotate(0);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(105vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* floating reward */
+
+.float-reward{
+  position:fixed;
+  z-index:1100;
+  font-size:24px;
+  font-weight:1000;
+  color:#ffb900;
+  pointer-events:none;
+  animation:rewardFloat 1s ease forwards;
+}
+
+@keyframes rewardFloat{
+  0%{
+    opacity:0;
+    transform:translateY(20px) scale(.7);
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-80px) scale(1.2);
+  }
+}
+
+/* toast */
+
+.toast{
+  position:fixed;
+  z-index:1200;
+  right:20px;
+  bottom:20px;
+  padding:14px 19px;
+  background:#25234a;
+  color:#fff;
+  border-radius:15px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  font-weight:900;
+  transform:translateY(100px);
+  opacity:0;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:none;
+  opacity:1;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+  .games{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .dashboard{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero-character{
+    right:25px;
+    font-size:130px;
+  }
+}
+
+@media(max-width:750px){
+
+  .hero-card{
+    padding:28px;
+  }
+
+  .hero-character{
+    opacity:.22;
+    right:-10px;
+    font-size:150px;
+  }
+
+  .games{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .reward-panel{
+    grid-template-columns:1fr;
+  }
+
+  .badges{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .island{
+    width:125px;
+    min-height:115px;
+  }
+
+  .island-icon{
+    font-size:40px;
+  }
+
+  .island-title{
+    font-size:13px;
+  }
+
+  .path{
+    display:none;
+  }
+
+}
+
+@media(max-width:560px){
+
+  .topbar-inner{
+    align-items:flex-start;
+  }
+
+  .top-stats{
+    max-width:220px;
+  }
+
+  .brand-name{
+    font-size:15px;
+  }
+
+  .brand-icon{
+    width:42px;
+    height:42px;
+  }
+
+  .dashboard{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .games{
+    grid-template-columns:1fr;
+  }
+
+  .games-head{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .search{
+    width:100%;
+  }
+
+  .daily{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .world-map{
+    min-height:600px;
+  }
+
+  .island-1{
+    left:4%;
+    top:110px;
+  }
+
+  .island-2{
+    right:4%;
+    left:auto;
+    top:220px;
+  }
+
+  .island-3{
+    left:4%;
+    right:auto;
+    top:335px;
+  }
+
+  .island-4{
+    left:4%;
+    bottom:15px;
+  }
+
+  .island-5{
+    right:4%;
+    bottom:15px;
+  }
+
+  .answer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .memory-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .shop-items{
+    grid-template-columns:1fr;
+  }
+
+  .modal-body{
+    padding:16px;
+  }
+
+  .big-question{
+    font-size:32px;
+  }
+
+  .badges{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     TOPBAR
+====================================================== -->
+
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="brand">
+
+      <div class="brand-icon">🧠</div>
+
+      <div class="brand-name">
+        Mi Mundo<br>
+        <span>de Aprendizaje</span>
+      </div>
+
+    </div>
+
+    <div class="top-stats">
+
+      <div class="stat">⭐ <span id="uiXP">0</span></div>
+
+      <div class="stat">🪙 <span id="uiCoins">0</span></div>
+
+      <div class="stat">💎 <span id="uiGems">0</span></div>
+
+      <div class="stat">🔥 <span id="uiStreak">0</span></div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+  <div class="hero-card">
+
+    <div class="hero-cloud cloud1">☁️</div>
+    <div class="hero-cloud cloud2">☁️</div>
+
+    <div class="hero-character" id="heroCharacter">
+      🧙‍♂️
+    </div>
+
+    <h1>
+      ¡Tu aventura<br>
+      comienza aquí! 🚀
+    </h1>
+
+    <p>
+      Aprendé letras, palabras, números, cuentas, lógica,
+      cuentos y muchísimo más mientras conseguís estrellas,
+      monedas, premios y nuevos niveles.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button class="btn btn-primary"
+              onclick="quickPlay()">
+        🎮 JUGAR AHORA
+      </button>
+
+      <button class="btn btn-glass"
+              onclick="openChest()">
+        🎁 MIS PREMIOS
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="main">
+
+  <!-- DASHBOARD -->
+
+  <section class="dashboard">
+
+    <div class="dash-card level-card">
+
+      <div class="level-circle" id="uiLevel">
+        1
+      </div>
+
+      <div style="flex:1">
+
+        <div class="dash-label">
+          NIVEL DE EXPLORADOR
+        </div>
+
+        <div class="dash-value">
+          <span id="uiLevelText">1</span>
+        </div>
+
+        <div class="progress">
+          <div
+            class="progress-fill"
+            id="xpProgress">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="dash-card">
+
+      <div class="dash-label">⭐ EXPERIENCIA</div>
+
+      <div class="dash-value">
+        <span id="uiCurrentXP">0</span>
+        <small style="font-size:13px;color:#888">
+          / 100
+        </small>
+      </div>
+
+      <div class="dash-label">
+        para el próximo nivel
+      </div>
+
+    </div>
+
+    <div class="dash-card">
+
+      <div class="dash-label">🎮 JUEGOS</div>
+
+      <div class="dash-value" id="uiPlayed">
+        0
+      </div>
+
+      <div class="dash-label">
+        desafíos realizados
+      </div>
+
+    </div>
+
+    <div class="dash-card">
+
+      <div class="dash-label">🏆 MEDALLAS</div>
+
+      <div class="dash-value">
+        <span id="uiBadges">0</span>
+      </div>
+
+      <div class="dash-label">
+        logros desbloqueados
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAPA -->
+
+  <section class="section">
+
+    <div class="section-title">
+      🗺️ Mi mundo
+    </div>
+
+    <div class="section-sub">
+      Explorá las distintas zonas y desbloqueá nuevas aventuras.
+    </div>
+
+    <div class="world-map">
+
+      <div class="sun">☀️</div>
+
+      <div class="map-cloud mc1">☁️</div>
+      <div class="map-cloud mc2">☁️</div>
+      <div class="map-cloud mc3">☁️</div>
+
+      <div class="path path1"></div>
+      <div class="path path2"></div>
+      <div class="path path3"></div>
+      <div class="path path4"></div>
+
+
+      <div class="island island-1"
+           onclick="openWorld('Lengua')">
+
+        <div class="island-icon">📚</div>
+
+        <div class="island-title">
+          BOSQUE DE LAS LETRAS
+        </div>
+
+        <div class="island-stars">
+          ⭐ ⭐ ⭐
+        </div>
+
+      </div>
+
+
+      <div class="island island-2"
+           onclick="openWorld('Matemática')">
+
+        <div class="island-icon">🔢</div>
+
+        <div class="island-title">
+          MONTAÑA DE LOS NÚMEROS
+        </div>
+
+        <div class="island-stars">
+          ⭐ ⭐ ⭐
+        </div>
+
+      </div>
+
+
+      <div class="island island-3"
+           onclick="openWorld('Lógica')">
+
+        <div class="island-icon">🧠</div>
+
+        <div class="island-title">
+          TEMPLO DE LA LÓGICA
+        </div>
+
+        <div class="island-stars">
+          ⭐ ⭐ ⭐
+        </div>
+
+      </div>
+
+
+      <div class="island island-4"
+           onclick="openWorld('Geometría')">
+
+        <div class="island-icon">📐</div>
+
+        <div class="island-title">
+          VALLE DE LAS FORMAS
+        </div>
+
+        <div class="island-stars">
+          ⭐ ⭐ ⭐
+        </div>
+
+      </div>
+
+
+      <div class="island island-5"
+           onclick="openWorld('Cuentos')">
+
+        <div class="island-icon">📖</div>
+
+        <div class="island-title">
+          ISLA DE LOS CUENTOS
+        </div>
+
+        <div class="island-stars">
+          ⭐ ⭐ ⭐
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DESAFIO DIARIO -->
+
+  <section class="daily">
+
+    <div class="daily-icon">
+      🎯
+    </div>
+
+    <div class="daily-content">
+
+      <h2>
+        Desafío especial de hoy
+      </h2>
+
+      <p id="dailyText">
+        Completá un juego para conseguir una recompensa adicional.
+      </p>
+
+    </div>
+
+    <button class="btn"
+            onclick="dailyChallenge()">
+      ⭐ JUGAR
+    </button>
+
+  </section>
+
+
+  <!-- JUEGOS -->
+
+  <section class="section" id="gamesSection">
+
+    <div class="games-head">
+
+      <div>
+
+        <div class="section-title">
+          🎮 Centro de aventuras
+        </div>
+
+        <div class="section-sub">
+          Cada juego tiene sus propios desafíos y recompensas.
+        </div>
+
+      </div>
+
+      <input
+        class="search"
+        id="search"
+        placeholder="🔎 Buscar juego..."
+        oninput="renderGames()">
+
+    </div>
+
+
+    <div class="categories"
+         id="categories">
+    </div>
+
+
+    <div class="games"
+         id="games">
+    </div>
+
+  </section>
+
+
+  <!-- RECOMPENSAS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      🎁 Recompensas
+    </div>
+
+    <div class="section-sub">
+      Conseguí monedas y abrí cofres para descubrir premios.
+    </div>
+
+    <div class="reward-panel"
+         style="margin-top:18px">
+
+      <div class="reward-card">
+
+        <h3>
+          🎁 Cofre del explorador
+        </h3>
+
+        <div class="chest"
+             onclick="openChest()">
+
+          <div class="chest-icon">
+            🎁
+          </div>
+
+          <small>
+            Tocá para abrir
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="reward-card">
+
+        <h3>
+          🏅 Mis medallas
+        </h3>
+
+        <div class="badges"
+             id="badges">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer style="
+  text-align:center;
+  color:#85859d;
+  padding:30px 15px 50px;
+  font-size:13px;
+">
+  🧠 Mi Mundo de Aprendizaje · Aprender jugando es una aventura.
+</footer>
+
+
+<!-- ======================================================
+     MODAL
+====================================================== -->
+
+<div class="modal"
+     id="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <div class="modal-title"
+           id="modalTitle">
+        Juego
+      </div>
+
+      <button class="close"
+              onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body"
+         id="modalBody">
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast">
+</div>
+
+
+<script>
+
+/* =========================================================
+   DATOS DEL JUGADOR
+========================================================= */
+
+const defaultPlayer = {
+
+  xp:0,
+  level:1,
+
+  coins:50,
+  gems:3,
+
+  streak:0,
+
+  played:0,
+  correct:0,
+
+  combo:0,
+  bestCombo:0,
+
+  badges:[],
+
+  openedChest:false,
+
+  unlocked:{
+    Lengua:true,
+    Matemática:true,
+    Lógica:true,
+    Geometría:false,
+    Cuentos:false
+  }
+
+};
+
+let player =
+  JSON.parse(localStorage.getItem("miMundoPlayer"))
+  || defaultPlayer;
+
+
+/* =========================================================
+   GUARDAR
+========================================================= */
+
+function savePlayer(){
+
+  localStorage.setItem(
+    "miMundoPlayer",
+    JSON.stringify(player)
+  );
+
+}
+
+
+/* =========================================================
+   SONIDOS
+========================================================= */
+
+function sound(type){
+
+  try{
+
+    const AudioContext =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    const ctx = new AudioContext();
+
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    if(type==="correct"){
+
+      osc.frequency.setValueAtTime(
+        520,
+        ctx.currentTime
+      );
+
+      osc.frequency.exponentialRampToValueAtTime(
+        900,
+        ctx.currentTime+.18
+      );
+
+    }else if(type==="wrong"){
+
+      osc.frequency.setValueAtTime(
+        220,
+        ctx.currentTime
+      );
+
+    }else if(type==="reward"){
+
+      osc.frequency.setValueAtTime(
+        600,
+        ctx.currentTime
+      );
+
+      osc.frequency.setValueAtTime(
+        800,
+        ctx.currentTime+.12
+      );
+
+      osc.frequency.setValueAtTime(
+        1050,
+        ctx.currentTime+.24
+      );
+
+    }
+
+    gain.gain.setValueAtTime(
+      .08,
+      ctx.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      ctx.currentTime+.35
+    );
+
+    osc.start();
+
+    osc.stop(
+      ctx.currentTime+.35
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function toast(message){
+
+  const el =
+    document.getElementById("toast");
+
+  el.textContent=message;
+
+  el.classList.add("show");
+
+  setTimeout(()=>{
+    el.classList.remove("show");
+  },2300);
+
+}
+
+
+/* =========================================================
+   CONFETI
+========================================================= */
+
+function confetti(){
+
+  const symbols=[
+    "⭐","✨","🎉","🟡","🟣","💎","🪙"
+  ];
+
+  for(let i=0;i<45;i++){
+
+    const el=document.createElement("div");
+
+    el.className="confetti";
+
+    el.textContent=
+      symbols[
+        Math.floor(Math.random()*symbols.length)
+      ];
+
+    el.style.left=
+      Math.random()*100+"vw";
+
+    el.style.top="-20px";
+
+    el.style.fontSize=
+      (10+Math.random()*14)+"px";
+
+    el.style.animationDelay=
+      Math.random()*.5+"s";
+
+    document.body.appendChild(el);
+
+    setTimeout(()=>{
+      el.remove();
+    },2200);
+
+  }
+
+}
+
+
+/* =========================================================
+   RECOMPENSA FLOTANTE
+========================================================= */
+
+function floatingReward(text){
+
+  const el=document.createElement("div");
+
+  el.className="float-reward";
+
+  el.textContent=text;
+
+  el.style.left=
+    (40+Math.random()*20)+"%";
+
+  el.style.top="50%";
+
+  document.body.appendChild(el);
+
+  setTimeout(()=>{
+    el.remove();
+  },1100);
+
+}
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+function updateUI(){
+
+  document.getElementById("uiXP").textContent=
+    player.xp;
+
+  document.getElementById("uiCoins").textContent=
+    player.coins;
+
+  document.getElementById("uiGems").textContent=
+    player.gems;
+
+  document.getElementById("uiStreak").textContent=
+    player.streak;
+
+  document.getElementById("uiLevel").textContent=
+    player.level;
+
+  document.getElementById("uiLevelText").textContent=
+    player.level;
+
+  document.getElementById("uiCurrentXP").textContent=
+    player.xp;
+
+  document.getElementById("uiPlayed").textContent=
+    player.played;
+
+  document.getElementById("uiBadges").textContent=
+    player.badges.length;
+
+  document.getElementById("xpProgress").style.width=
+    player.xp+"%";
+
+}
+
+
+/* =========================================================
+   SUBIR DE NIVEL
+========================================================= */
+
+function addXP(amount){
+
+  player.xp += amount;
+
+  while(player.xp>=100){
+
+    player.xp -= 100;
+
+    player.level++;
+
+    player.gems += 1;
+
+    toast(
+      "🎉 ¡SUBISTE AL NIVEL "+
+      player.level+
+      "! +💎1"
+    );
+
+    sound("reward");
+
+    confetti();
+
+  }
+
+}
+
+
+/* =========================================================
+   RECOMPENSA POR ACIERTO
+========================================================= */
+
+function rewardCorrect(baseXP=10){
+
+  player.correct++;
+
+  player.played++;
+
+  player.combo++;
+
+  if(player.combo>player.bestCombo){
+    player.bestCombo=
+      player.combo;
+  }
+
+  const comboBonus=
+    Math.min(
+      player.combo*2,
+      20
+    );
+
+  const coins=
+    3+Math.min(player.combo,7);
+
+  const xp=
+    baseXP+comboBonus;
+
+  player.coins+=coins;
+
+  addXP(xp);
+
+  floatingReward(
+    "⭐ +"+xp+
+    "   🪙 +"+coins
+  );
+
+  if(player.combo>=3){
+    toast(
+      "🔥 ¡COMBO x"+
+      player.combo+
+      "!"
+    );
+  }
+
+  sound("correct");
+
+  checkBadges();
+
+  savePlayer();
+
+  updateUI();
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+function wrongAnswer(){
+
+  player.combo=0;
+
+  sound("wrong");
+
+  toast(
+    "💪 ¡No pasa nada! Intentá de nuevo."
+  );
+
+  savePlayer();
+
+}
+
+
+/* =========================================================
+   MEDALLAS
+========================================================= */
+
+const badges=[
+
+  {
+    id:"first",
+    icon:"🌟",
+    title:"Primer paso",
+    test:p=>p.played>=1
+  },
+
+  {
+    id:"ten",
+    icon:"🎮",
+    title:"10 aventuras",
+    test:p=>p.played>=10
+  },
+
+  {
+    id:"correct20",
+    icon:"🎯",
+    title:"20 aciertos",
+    test:p=>p.correct>=20
+  },
+
+  {
+    id:"correct50",
+    icon:"🏆",
+    title:"50 aciertos",
+    test:p=>p.correct>=50
+  },
+
+  {
+    id:"coins100",
+    icon:"🪙",
+    title:"Coleccionista",
+    test:p=>p.coins>=100
+  },
+
+  {
+    id:"level5",
+    icon:"🚀",
+    title:"Nivel 5",
+    test:p=>p.level>=5
+  },
+
+  {
+    id:"level10",
+    icon:"👑",
+    title:"Nivel 10",
+    test:p=>p.level>=10
+  },
+
+  {
+    id:"combo5",
+    icon:"🔥",
+    title:"Combo x5",
+    test:p=>p.bestCombo>=5
+  },
+
+  {
+    id:"combo10",
+    icon:"⚡",
+    title:"Combo x10",
+    test:p=>p.bestCombo>=10
+  },
+
+  {
+    id:"rich",
+    icon:"💎",
+    title:"Cazador de gemas",
+    test:p=>p.gems>=10
+  },
+
+  {
+    id:"reader",
+    icon:"📚",
+    title:"Gran lector",
+    test:p=>p.correct>=30
+  },
+
+  {
+    id:"master",
+    icon:"🏅",
+    title:"Maestro",
+    test:p=>p.correct>=100
+  }
+
+];
+
+
+function checkBadges(){
+
+  badges.forEach(b=>{
+
+    if(
+      b.test(player) &&
+      !player.badges.includes(b.id)
+    ){
+
+      player.badges.push(b.id);
+
+      toast(
+        "🏅 ¡NUEVA MEDALLA! "+
+        b.icon+
+        " "+b.title
+      );
+
+      confetti();
+
+      sound("reward");
+
+    }
+
+  });
+
+  renderBadges();
+
+}
+
+
+/* =========================================================
+   MEDALLAS UI
+========================================================= */
+
+function renderBadges(){
+
+  document.getElementById("badges").innerHTML=
+
+    badges.map(b=>{
+
+      const unlocked=
+        player.badges.includes(b.id);
+
+      return `
+
+        <div class="badge ${
+          unlocked?"unlocked":""
+        }">
+
+          <div class="badge-icon">
+            ${b.icon}
+          </div>
+
+          <div class="badge-title">
+            ${b.title}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   JUEGOS
+========================================================= */
+
+const games=[
+
+/* ---------------------------------------------------------
+   LENGUA
+--------------------------------------------------------- */
+
+{
+  id:"vocales",
+  world:"Lengua",
+  icon:"🔤",
+  title:"Cazador de vocales",
+  desc:"Encontrá la vocal correcta entre diferentes letras.",
+  xp:10,
+
+  play(){
+
+    const vowels=[
+      "A","E","I","O","U"
+    ];
+
+    const answer=
+      vowels[
+        Math.floor(
+          Math.random()*vowels.length
+        )
+      ];
+
+    let options=[
+      answer
+    ];
+
+    while(options.length<4){
+
+      const x=
+        vowels[
+          Math.floor(
+            Math.random()*vowels.length
+          )
+        ];
+
+      if(!options.includes(x)){
+        options.push(x);
+      }
+
+    }
+
+    options.sort(
+      ()=>Math.random()-.5
+    );
+
+    renderChoiceGame({
+
+      icon:"🔤",
+
+      instruction:
+        "¡Encontrá la vocal indicada!",
+
+      question:
+        "¿Cuál es la vocal "+answer+"?",
+
+      visual:"🔤",
+
+      options,
+
+      answer,
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"letrainicial",
+  world:"Lengua",
+  icon:"🐱",
+  title:"La primera letra",
+  desc:"Descubrí con qué letra comienza cada palabra.",
+  xp:12,
+
+  play(){
+
+    const data=[
+
+      ["🐱","GATO","G"],
+      ["🐶","PERRO","P"],
+      ["🍎","MANZANA","M"],
+      ["☀️","SOL","S"],
+      ["🏠","CASA","C"],
+      ["🐟","PEZ","P"],
+      ["🌳","ARBOL","A"],
+      ["🚗","AUTO","A"]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    const letters=[
+      "A","B","C","D",
+      "G","M","P","S"
+    ];
+
+    let options=[
+      d[2]
+    ];
+
+    while(options.length<4){
+
+      const x=
+        letters[
+          Math.floor(
+            Math.random()*letters.length
+          )
+        ];
+
+      if(!options.includes(x)){
+        options.push(x);
+      }
+
+    }
+
+    options.sort(
+      ()=>Math.random()-.5
+    );
+
+    renderChoiceGame({
+
+      icon:d[0],
+
+      instruction:
+        "Mirá la imagen y pensá.",
+
+      question:
+        "¿Con qué letra empieza "+d[1]+"?",
+
+      visual:d[0],
+
+      options,
+
+      answer:d[2],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"letrafaltante",
+  world:"Lengua",
+  icon:"🧩",
+  title:"La letra perdida",
+  desc:"Completá palabras antes de que desaparezcan.",
+  xp:14,
+
+  play(){
+
+    const data=[
+
+      ["G_TO","A"],
+      ["C_SA","A"],
+      ["P_TO","A"],
+      ["M_NO","A"],
+      ["S_PA","O"],
+      ["L_NA","U"],
+      ["P_LOTA","E"],
+      ["G_TARRA","U"]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    const options=
+      ["A","E","I","O","U"]
+      .sort(()=>Math.random()-.5);
+
+    renderChoiceGame({
+
+      icon:"🧩",
+
+      instruction:
+        "¡La palabra perdió una letra!",
+
+      question:
+        d[0],
+
+      visual:"🔍",
+
+      options,
+
+      answer:d[1],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"silabas",
+  world:"Lengua",
+  icon:"🔊",
+  title:"Detective de sílabas",
+  desc:"Descubrí cuántas sílabas tiene una palabra.",
+  xp:12,
+
+  play(){
+
+    const data=[
+
+      ["SOL",1],
+      ["CASA",2],
+      ["PELOTA",3],
+      ["MARIPOSA",4],
+      ["PAN",1],
+      ["ZAPATO",3],
+      ["ELEFANTE",4],
+      ["MESA",2]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    renderChoiceGame({
+
+      icon:"🔊",
+
+      instruction:
+        "Escuchá la palabra con tu mente.",
+
+      question:
+        '"'+d[0]+'"',
+
+      visual:"👂",
+
+      options:["1","2","3","4"],
+
+      answer:String(d[1]),
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"rimas",
+  world:"Lengua",
+  icon:"🎵",
+  title:"Cazador de rimas",
+  desc:"Encontrá la palabra que rima.",
+  xp:13,
+
+  play(){
+
+    const data=[
+
+      ["GATO","PATO","MESA","SOL","LUNA"],
+      ["CASA","TAZA","PEZ","PAN","LAGO"],
+      ["RATÓN","CAMIÓN","CASA","LUNA","MESA"],
+      ["LUNA","CUNA","SOL","PAN","GATO"]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    renderChoiceGame({
+
+      icon:"🎵",
+
+      instruction:
+        "¡Buscá la palabra que suena parecido!",
+
+      question:
+        "¿Cuál rima con "+d[0]+"?",
+
+      visual:"🎶",
+
+      options:d.slice(1),
+
+      answer:d[1],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+/* ---------------------------------------------------------
+   MATEMÁTICA
+--------------------------------------------------------- */
+
+{
+  id:"sumas",
+  world:"Matemática",
+  icon:"➕",
+  title:"Sumas mágicas",
+  desc:"Resolvé cuentas para llenar tu mochila de monedas.",
+  xp:12,
+
+  play(){
+
+    mathGame("+",this.xp);
+
+  }
+},
+
+{
+  id:"restas",
+  world:"Matemática",
+  icon:"➖",
+  title:"Restas voladoras",
+  desc:"Resolvé restas para ayudar al cohete.",
+  xp:13,
+
+  play(){
+
+    mathGame("-",this.xp);
+
+  }
+},
+
+{
+  id:"tablas",
+  world:"Matemática",
+  icon:"✖️",
+  title:"Tablas relámpago",
+  desc:"Poné a prueba tus tablas de multiplicar.",
+  xp:16,
+
+  play(){
+
+    mathGame("*",this.xp);
+
+  }
+},
+
+{
+  id:"series",
+  world:"Matemática",
+  icon:"🔢",
+  title:"La serie perdida",
+  desc:"Descubrí qué número falta.",
+  xp:15,
+
+  play(){
+
+    const start=
+      Math.floor(
+        Math.random()*10
+      )+1;
+
+    const step=
+      Math.floor(
+        Math.random()*4
+      )+2;
+
+    const answer=
+      start+step*2;
+
+    renderChoiceGame({
+
+      icon:"🔢",
+
+      instruction:
+        "¡Descubrí el patrón!",
+
+      question:
+        `${start} → ${start+step} → ? → ${start+step*3}`,
+
+      visual:"🧠",
+
+      options:[
+        String(answer),
+        String(answer+1),
+        String(answer-1),
+        String(answer+step)
+      ],
+
+      answer:String(answer),
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"mayor",
+  world:"Matemática",
+  icon:"⚖️",
+  title:"Mayor, menor o igual",
+  desc:"Compará números y elegí el símbolo correcto.",
+  xp:12,
+
+  play(){
+
+    const a=
+      Math.floor(
+        Math.random()*50
+      )+1;
+
+    let b=
+      Math.floor(
+        Math.random()*50
+      )+1;
+
+    while(a===b){
+      b=
+        Math.floor(
+          Math.random()*50
+        )+1;
+    }
+
+    const answer=
+      a>b?">":"<";
+
+    renderChoiceGame({
+
+      icon:"⚖️",
+
+      instruction:
+        "¿Cuál es el signo correcto?",
+
+      question:
+        `${a}   ?   ${b}`,
+
+      visual:"⚖️",
+
+      options:[
+        ">","<","="
+      ],
+
+      answer,
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"tienda",
+  world:"Matemática",
+  icon:"🛒",
+  title:"La tienda mágica",
+  desc:"Comprá objetos y calculá cuánto necesitás.",
+  xp:18,
+
+  play(){
+
+    const a=
+      Math.floor(
+        Math.random()*8
+      )+2;
+
+    const b=
+      Math.floor(
+        Math.random()*8
+      )+2;
+
+    const total=a+b;
+
+    renderChoiceGame({
+
+      icon:"🛒",
+
+      instruction:
+        "¡Tenés que comprar los dos productos!",
+
+      question:
+        `🍎 $${a}  +  🥛 $${b}`,
+
+      visual:"🛍️",
+
+      options:[
+        "$"+total,
+        "$"+(total+3),
+        "$"+(total-2),
+        "$"+(total+5)
+      ],
+
+      answer:"$"+total,
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+/* ---------------------------------------------------------
+   LÓGICA
+--------------------------------------------------------- */
+
+{
+  id:"patrones",
+  world:"Lógica",
+  icon:"🔮",
+  title:"El patrón secreto",
+  desc:"Descubrí qué figura continúa.",
+  xp:15,
+
+  play(){
+
+    const patterns=[
+
+      ["🔴","🔵"],
+      ["⭐","🌙"],
+      ["🟩","🟨"],
+      ["🐶","🐱"]
+
+    ];
+
+    const d=
+      patterns[
+        Math.floor(
+          Math.random()*patterns.length
+        )
+      ];
+
+    const sequence=
+      d[0]+" "+d[1]+" "+
+      d[0]+" "+d[1]+" ?";
+
+    renderChoiceGame({
+
+      icon:"🔮",
+
+      instruction:
+        "¿Qué sigue?",
+
+      question:
+        sequence,
+
+      visual:"🧩",
+
+      options:[
+        d[0],
+        d[1],
+        "🟣",
+        "🟧"
+      ],
+
+      answer:d[0],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"intruso",
+  world:"Lógica",
+  icon:"🕵️",
+  title:"Encontrá al intruso",
+  desc:"Uno de estos elementos no pertenece.",
+  xp:15,
+
+  play(){
+
+    const data=[
+
+      [
+        ["🐶","🐱","🐭","🍎"],
+        "🍎"
+      ],
+
+      [
+        ["🚗","🚲","🚌","🍌"],
+        "🍌"
+      ],
+
+      [
+        ["🍎","🍐","🍊","🐶"],
+        "🐶"
+      ],
+
+      [
+        ["🔴","🔵","🟢","🐱"],
+        "🐱"
+      ]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    renderChoiceGame({
+
+      icon:"🕵️",
+
+      instruction:
+        "¡Hay uno que no pertenece!",
+
+      question:
+        "¿Cuál es el intruso?",
+
+      visual:"🔎",
+
+      options:d[0],
+
+      answer:d[1],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"memoria",
+  world:"Lógica",
+  icon:"🧠",
+  title:"Memoria mágica",
+  desc:"Encontrá todas las parejas.",
+  xp:25,
+
+  play(){
+
+    memoryGame();
+
+  }
+},
+
+/* ---------------------------------------------------------
+   GEOMETRIA
+--------------------------------------------------------- */
+
+{
+  id:"figuras",
+  world:"Geometría",
+  icon:"🔺",
+  title:"Detective de figuras",
+  desc:"Reconocé triángulos, círculos, cuadrados y más.",
+  xp:14,
+
+  play(){
+
+    const data=[
+
+      ["🔺","triángulo"],
+      ["🟦","cuadrado"],
+      ["⚪","círculo"],
+      ["🔶","rombo"]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    renderChoiceGame({
+
+      icon:"📐",
+
+      instruction:
+        "¡Detective geométrico!",
+
+      question:
+        "¿Qué figura es?",
+
+      visual:d[0],
+
+      options:[
+        "triángulo",
+        "cuadrado",
+        "círculo",
+        "rombo"
+      ],
+
+      answer:d[1],
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+{
+  id:"lados",
+  world:"Geometría",
+  icon:"📏",
+  title:"Contá los lados",
+  desc:"Descubrí cuántos lados tiene cada figura.",
+  xp:15,
+
+  play(){
+
+    const data=[
+
+      ["🔺","triángulo",3],
+      ["🟦","cuadrado",4],
+      ["⬟","pentágono",5],
+      ["⬡","hexágono",6]
+
+    ];
+
+    const d=
+      data[
+        Math.floor(
+          Math.random()*data.length
+        )
+      ];
+
+    renderChoiceGame({
+
+      icon:"📏",
+
+      instruction:
+        "Contá cuidadosamente.",
+
+      question:
+        "¿Cuántos lados tiene el "+d[1]+"?",
+
+      visual:d[0],
+
+      options:[
+        "3","4","5","6"
+      ],
+
+      answer:String(d[2]),
+
+      xp:this.xp
+
+    });
+
+  }
+},
+
+/* ---------------------------------------------------------
+   CUENTOS
+--------------------------------------------------------- */
+
+{
+  id:"cuento",
+  world:"Cuentos",
+  icon:"📖",
+  title:"La semilla mágica",
+  desc:"Leé una historia y descubrí qué ocurrió.",
+  xp:25,
+
+  play(){
+
+    renderStory();
+
+  }
+}
+
+];
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+
+let currentWorld="Todos";
+
+function renderCategories(){
+
+  const worlds=[
+    "Todos",
+    "Lengua",
+    "Matemática",
+    "Lógica",
+    "Geometría",
+    "Cuentos"
+  ];
+
+  document.getElementById(
+    "categories"
+  ).innerHTML=
+
+    worlds.map(w=>`
+
+      <button
+        class="category ${
+          currentWorld===w?"active":""
+        }"
+        onclick="selectWorld('${w}')">
+
+        ${
+          w==="Todos"
+          ?"🌈"
+          :worldIcon(w)
+        }
+
+        ${w}
+
+      </button>
+
+    `).join("");
+
+}
+
+
+function worldIcon(w){
+
+  return {
+
+    "Lengua":"📚",
+    "Matemática":"🔢",
+    "Lógica":"🧠",
+    "Geometría":"📐",
+    "Cuentos":"📖"
+
+  }[w]||"🎮";
+
+}
+
+
+function selectWorld(world){
+
+  currentWorld=world;
+
+  renderCategories();
+  renderGames();
+
+}
+
+
+/* =========================================================
+   JUEGOS UI
+========================================================= */
+
+function renderGames(){
+
+  const search=
+    document.getElementById(
+      "search"
+    ).value.toLowerCase();
+
+  let list=
+    games.filter(g=>{
+
+      const worldMatch=
+        currentWorld==="Todos"
+        ||
+        g.world===currentWorld;
+
+      const searchMatch=
+        g.title.toLowerCase().includes(search)
+        ||
+        g.desc.toLowerCase().includes(search);
+
+      return worldMatch&&searchMatch;
+
+    });
+
+
+  document.getElementById(
+    "games"
+  ).innerHTML=
+
+    list.map(g=>`
+
+      <article class="game-card">
+
+        <div class="game-card-top">
+
+          <div class="game-icon">
+            ${g.icon}
+          </div>
+
+          <div class="game-xp">
+            ⭐ +${g.xp}
+          </div>
+
+        </div>
+
+        <h3>
+          ${g.title}
+        </h3>
+
+        <p>
+          ${g.desc}
+        </p>
+
+        <button
+          class="play-btn"
+          onclick="startGame('${g.id}')">
+
+          🎮 JUGAR
+
+        </button>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   START GAME
+========================================================= */
+
+let currentGame=null;
+let gameLocked=false;
+
+function startGame(id){
+
+  const game=
+    games.find(g=>g.id===id);
+
+  if(!game)return;
+
+  currentGame=game;
+
+  document.getElementById(
+    "modalTitle"
+  ).textContent=
+    game.icon+" "+game.title;
+
+  document.getElementById(
+    "modal"
+  ).classList.add("show");
+
+  game.play();
+
+}
+
+
+function closeModal(){
+
+  document.getElementById(
+    "modal"
+  ).classList.remove("show");
+
+  currentGame=null;
+
+  gameLocked=false;
+
+}
+
+
+document.getElementById(
+  "modal"
+).addEventListener(
+  "click",
+  e=>{
+
+    if(e.target.id==="modal"){
+      closeModal();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   CHOICE GAME
+========================================================= */
+
+function renderChoiceGame(data){
+
+  gameLocked=false;
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML=`
+
+    <div class="game-hud">
+
+      <div class="hud-pill">
+        ⭐ +${data.xp} base
+      </div>
+
+      <div class="hud-pill coins">
+        🪙 ${player.coins}
+      </div>
+
+      <div class="hud-pill hearts">
+        🔥 Combo x${player.combo}
+      </div>
+
+    </div>
+
+    <div class="game-scene">
+
+      <div class="instruction">
+        ${data.instruction}
+      </div>
+
+      <div class="big-emoji">
+        ${data.visual}
+      </div>
+
+      <div class="big-question">
+        ${data.question}
+      </div>
+
+      <div class="answer-grid">
+
+        ${data.options.map(option=>`
+
+          <button
+            class="game-answer"
+            onclick="answerChoice(
+              this,
+              ${JSON.stringify(String(option))},
+              ${JSON.stringify(String(data.answer))},
+              ${data.xp}
+            )">
+
+            ${option}
+
+          </button>
+
+        `).join("")}
+
+      </div>
+
+      <div
+        class="feedback"
+        id="feedback">
+      </div>
+
+      <div
+        class="reward-line"
+        id="rewardLine">
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   ANSWER CHOICE
+========================================================= */
+
+function answerChoice(
+  button,
+  value,
+  answer,
+  xp
+){
+
+  if(gameLocked)return;
+
+  gameLocked=true;
+
+  const buttons=
+    document.querySelectorAll(
+      ".game-answer"
+    );
+
+  const correct=
+    value===answer;
+
+  buttons.forEach(b=>{
+
+    if(
+      b.textContent.trim()===answer
+    ){
+
+      b.classList.add("correct");
+
+    }
+
+  });
+
+
+  if(correct){
+
+    button.classList.add(
+      "correct"
+    );
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML=
+      "🎉 ¡PERFECTO!";
+
+    rewardCorrect(xp);
+
+    document.getElementById(
+      "rewardLine"
+    ).innerHTML=
+      "⭐ XP + "+
+      (
+        xp+
+        Math.min(
+          player.combo*2,
+          20
+        )
+      )+
+      " &nbsp;&nbsp; 🪙 monedas";
+
+    setTimeout(()=>{
+
+      currentGame.play();
+
+    },1000);
+
+
+  }else{
+
+    button.classList.add(
+      "wrong"
+    );
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML=
+      "💪 ¡Casi! Mirá la respuesta correcta.";
+
+    wrongAnswer();
+
+    setTimeout(()=>{
+
+      gameLocked=false;
+
+    },900);
+
+  }
+
+}
+
+
+/* =========================================================
+   MATH
+========================================================= */
+
+function mathGame(
+  operation,
+  xp
+){
+
+  let a,b,result;
+
+  if(operation==="+"){
+
+    a=
+      Math.floor(
+        Math.random()*25
+      )+1;
+
+    b=
+      Math.floor(
+        Math.random()*25
+      )+1;
+
+    result=a+b;
+
+  }
+
+
+  if(operation==="-"){
+
+    a=
+      Math.floor(
+        Math.random()*30
+      )+10;
+
+    b=
+      Math.floor(
+        Math.random()*a
+      )+1;
+
+    result=a-b;
+
+  }
+
+
+  if(operation==="*"){
+
+    a=
+      Math.floor(
+        Math.random()*10
+      )+1;
+
+    b=
+      Math.floor(
+        Math.random()*10
+      )+1;
+
+    result=a*b;
+
+  }
+
+
+  let options=[
+    result,
+    result+1,
+    result-1,
+    result+3
+  ];
+
+  options=[
+    ...new Set(options)
+  ];
+
+  while(options.length<4){
+
+    options.push(
+      result+
+      options.length+
+      2
+    );
+
+  }
+
+  options.sort(
+    ()=>Math.random()-.5
+  );
+
+
+  renderChoiceGame({
+
+    icon:
+      operation==="+"?"➕":
+      operation==="-"?"➖":
+      "✖️",
+
+    instruction:
+      "¡Resolvé la cuenta!",
+
+    question:
+      `${a} ${operation} ${b} = ?`,
+
+    visual:
+      operation==="*"?"🚀":"🧮",
+
+    options:
+
+      options.map(
+        x=>String(x)
+      ),
+
+    answer:
+      String(result),
+
+    xp
+
+  });
+
+}
+
+
+/* =========================================================
+   MEMORY
+========================================================= */
+
+let memoryFirst=null;
+let memoryLock=false;
+let memoryMatches=0;
+
+function memoryGame(){
+
+  const symbols=[
+    "🐶",
+    "🐱",
+    "🦊",
+    "🐼",
+    "🚀",
+    "⭐",
+    "🍎",
+    "🎈"
+  ];
+
+  const cards=[
+    ...symbols,
+    ...symbols
+  ].sort(
+    ()=>Math.random()-.5
+  );
+
+  memoryFirst=null;
+  memoryLock=false;
+  memoryMatches=0;
+  gameLocked=false;
+
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML=`
+
+    <div class="game-hud">
+
+      <div class="hud-pill">
+        🧠 Memoria
+      </div>
+
+      <div class="hud-pill coins">
+        🪙 ${player.coins}
+      </div>
+
+      <div class="hud-pill hearts">
+        ⭐ +25
+      </div>
+
+    </div>
+
+
+    <div class="game-scene">
+
+      <div class="instruction">
+        ¡Encontrá las 8 parejas!
+      </div>
+
+      <div
+        class="memory-grid">
+
+        ${cards.map((symbol,i)=>`
+
+          <button
+            class="memory-card"
+            data-symbol="${symbol}"
+            onclick="flipMemory(this)">
+
+            ?
+
+          </button>
+
+        `).join("")}
+
+      </div>
+
+      <div
+        class="feedback"
+        id="feedback">
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function flipMemory(card){
+
+  if(
+    memoryLock ||
+    card.classList.contains("open") ||
+    card.classList.contains("matched")
+  ){
+    return;
+  }
+
+  card.classList.add("open");
+
+  card.textContent=
+    card.dataset.symbol;
+
+
+  if(!memoryFirst){
+
+    memoryFirst=card;
+
+    return;
+
+  }
+
+
+  if(
+    memoryFirst.dataset.symbol===
+    card.dataset.symbol
+  ){
+
+    memoryFirst.classList.add(
+      "matched"
+    );
+
+    card.classList.add(
+      "matched"
+    );
+
+    memoryMatches++;
+
+    memoryFirst=null;
+
+    document.getElementById(
+      "feedback"
+    ).textContent=
+      "✨ ¡Pareja encontrada!";
+
+    sound("correct");
+
+
+    if(memoryMatches===8){
+
+      rewardCorrect(
+        currentGame.xp
+      );
+
+      confetti();
+
+      document.getElementById(
+        "feedback"
+      ).innerHTML=
+        "🏆 ¡MEMORIA COMPLETADA!";
+
+      setTimeout(()=>{
+        showVictory(
+          currentGame.xp,
+          "¡Memoria dominada!"
+        );
+      },700);
+
+    }
+
+
+  }else{
+
+    memoryLock=true;
+
+    wrongAnswer();
+
+    setTimeout(()=>{
+
+      memoryFirst.classList.remove(
+        "open"
+      );
+
+      card.classList.remove(
+        "open"
+      );
+
+      memoryFirst.textContent="?";
+      card.textContent="?";
+
+      memoryFirst=null;
+
+      memoryLock=false;
+
+    },650);
+
+  }
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+function renderStory(){
+
+  gameLocked=false;
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML=`
+
+    <div class="game-hud">
+
+      <div class="hud-pill">
+        📖 Historia
+      </div>
+
+      <div class="hud-pill coins">
+        🪙 ${player.coins}
+      </div>
+
+      <div class="hud-pill hearts">
+        ⭐ +25
+      </div>
+
+    </div>
+
+
+    <div class="story-box">
+
+      <h2>
+        🌱 La semilla mágica
+      </h2>
+
+      <p>
+        Una mañana, Luna, una pequeña ardilla,
+        encontró una semilla brillante debajo
+        de un árbol enorme.
+      </p>
+
+      <p>
+        Luna decidió plantarla cerca de su casa.
+        Todos los días llevaba un poquito de agua
+        y cuidaba la tierra.
+      </p>
+
+      <p>
+        Después de muchos días apareció una planta
+        con flores de muchísimos colores.
+      </p>
+
+      <p>
+        Luna descubrió que las cosas importantes
+        necesitan paciencia, cuidado y dedicación.
+      </p>
+
+    </div>
+
+
+    <div class="game-scene"
+         style="margin-top:15px">
+
+      <div class="instruction">
+        📚 ¡Ahora demostrale a Luna que leíste!
+      </div>
+
+      <div class="big-question">
+        ¿Qué encontró Luna?
+      </div>
+
+      <div class="answer-grid">
+
+        <button
+          class="game-answer"
+          onclick="storyAnswer(this,true)">
+          🌱 Una semilla
+        </button>
+
+        <button
+          class="game-answer"
+          onclick="storyAnswer(this,false)">
+          🚀 Un cohete
+        </button>
+
+        <button
+          class="game-answer"
+          onclick="storyAnswer(this,false)">
+          🎁 Un regalo
+        </button>
+
+        <button
+          class="game-answer"
+          onclick="storyAnswer(this,false)">
+          🏠 Una casa
+        </button>
+
+      </div>
+
+      <div
+        class="feedback"
+        id="feedback">
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function storyAnswer(button,correct){
+
+  if(gameLocked)return;
+
+  if(correct){
+
+    gameLocked=true;
+
+    button.classList.add(
+      "correct"
+    );
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML=
+      "🎉 ¡Excelente comprensión!";
+
+    rewardCorrect(
+      currentGame.xp
+    );
+
+    setTimeout(()=>{
+
+      showVictory(
+        currentGame.xp,
+        "¡Comprendiste el cuento!"
+      );
+
+    },850);
+
+  }else{
+
+    button.classList.add(
+      "wrong"
+    );
+
+    wrongAnswer();
+
+    setTimeout(()=>{
+
+      button.classList.remove(
+        "wrong"
+      );
+
+    },600);
+
+  }
+
+}
+
+
+/* =========================================================
+   VICTORIA
+========================================================= */
+
+function showVictory(
+  baseXP,
+  message
+){
+
+  confetti();
+
+  sound("reward");
+
+  const bonus=
+    Math.min(
+      player.combo*2,
+      20
+    );
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML=`
+
+    <div class="result-screen">
+
+      <div class="result-emoji">
+        🏆
+      </div>
+
+      <h2>
+        ¡${message}!
+      </h2>
+
+      <div class="result-sub">
+        ¡Tu aventura continúa!
+      </div>
+
+      <div class="result-rewards">
+
+        <div class="result-reward">
+          ⭐ +${baseXP+bonus} XP
+        </div>
+
+        <div class="result-reward">
+          🪙 +${3+Math.min(player.combo,7)}
+        </div>
+
+        <div class="result-reward">
+          🔥 Combo x${player.combo}
+        </div>
+
+      </div>
+
+      <div class="result-buttons">
+
+        <button
+          class="result-btn result-main"
+          onclick="currentGame.play()">
+
+          🚀 JUGAR DE NUEVO
+
+        </button>
+
+        <button
+          class="result-btn"
+          style="background:#eeeef5"
+          onclick="closeModal()">
+
+          🗺️ VOLVER AL MAPA
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+  savePlayer();
+  updateUI();
+
+}
+
+
+/* =========================================================
+   COFRE
+========================================================= */
+
+function openChest(){
+
+  if(player.openedChest){
+
+    toast(
+      "🎁 Ya abriste tu cofre de hoy."
+    );
+
+    return;
+
+  }
+
+  player.openedChest=true;
+
+  const rewards=[
+    "🪙 +25 monedas",
+    "💎 +2 gemas",
+    "⭐ +40 XP",
+    "🪙 +50 monedas"
+  ];
+
+  const reward=
+    rewards[
+      Math.floor(
+        Math.random()*rewards.length
+      )
+    ];
+
+
+  if(reward.includes("+25 monedas")){
+    player.coins+=25;
+  }
+
+  if(reward.includes("+50 monedas")){
+    player.coins+=50;
+  }
+
+  if(reward.includes("+2 gemas")){
+    player.gems+=2;
+  }
+
+  if(reward.includes("+40 XP")){
+    addXP(40);
+  }
+
+
+  savePlayer();
+  updateUI();
+
+  confetti();
+
+  sound("reward");
+
+  toast(
+    "🎁 ¡Ganaste "+reward+"!"
+  );
+
+}
+
+
+/* =========================================================
+   DAILY
+========================================================= */
+
+function dailyChallenge(){
+
+  const today=
+    new Date().toDateString();
+
+  const last=
+    localStorage.getItem(
+      "dailyChallengeDate"
+    );
+
+  if(last!==today){
+
+    localStorage.setItem(
+      "dailyChallengeDate",
+      today
+    );
+
+    player.streak++;
+
+    player.openedChest=false;
+
+    savePlayer();
+
+    updateUI();
+
+  }
+
+  document.getElementById(
+    "dailyText"
+  ).textContent=
+    "🎯 ¡Hoy tenés una misión especial! Completá cualquier aventura y ganá recompensas.";
+
+  quickPlay();
+
+}
+
+
+/* =========================================================
+   QUICK PLAY
+========================================================= */
+
+function quickPlay(){
+
+  const available=
+    games.filter(g=>
+      player.unlocked[g.world]!==false
+    );
+
+  const game=
+    available[
+      Math.floor(
+        Math.random()*available.length
+      )
+    ];
+
+  startGame(game.id);
+
+}
+
+
+/* =========================================================
+   WORLD
+========================================================= */
+
+function openWorld(world){
+
+  currentWorld=world;
+
+  renderCategories();
+
+  renderGames();
+
+  document.getElementById(
+    "gamesSection"
+  ).scrollIntoView({
+    behavior:"smooth"
+  });
+
+  toast(
+    worldIcon(world)+
+    " Explorando "+world
+  );
+
+}
+
+
+/* =========================================================
+   INICIALIZAR
+========================================================= */
+
+renderCategories();
+
+renderGames();
+
+renderBadges();
+
+updateUI();
+
+</script>
+
+</body>
+</html>
+```
